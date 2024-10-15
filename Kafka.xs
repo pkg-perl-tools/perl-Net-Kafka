@@ -418,7 +418,7 @@ krd_query_watermark_offsets(rdk, topic, partition, timeout_ms)
         long timeout_ms
     PREINIT:
         rd_kafka_resp_err_t err;
-        long low, high;
+        int64_t low, high;
     PPCODE:
         err = rd_kafka_query_watermark_offsets(rdk->rk, topic, partition, &low, &high, timeout_ms);
         if (err != RD_KAFKA_RESP_ERR_NO_ERROR) {
